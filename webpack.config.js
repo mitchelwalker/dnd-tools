@@ -1,14 +1,14 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: [
-    './src/index.jsx',
-    './style/style.scss'
-  ],
+  entry: {
+    app: './src/index.jsx',
+  },
   output: {
-    path: __dirname,
-    publicPath: '/',
-    filename: 'bundle.js'
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist')
   },
   module: {
     loaders: [
@@ -27,11 +27,13 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: './'
+    contentBase: './',
+    hot: true
   },
   plugins: [
       new ExtractTextPlugin('dist/styles/main.css', {
           allChunks: true
-      })
+      }),
+      new webpack.HotModuleReplacementPlugin()
   ]
 };

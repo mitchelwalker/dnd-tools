@@ -6,8 +6,8 @@ const getSuggestions = (value, suggestions) => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
     
-    return inputLength === 0 ? [] : suggestions.filter(spell =>
-        spell.name.toLowerCase().slice(0, inputLength) === inputValue
+    return inputLength === 0 ? [] : suggestions.filter((suggestion) => 
+        suggestion.name.toLowerCase().indexOf(inputValue) > -1
     );
 };
 

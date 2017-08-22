@@ -1,14 +1,49 @@
-$primary-color:#18121e;
-$secondary-color: #233237;
-$primary-text: #984b43;
-$secondary-text: #eac67a; 
+$secondary-color:#343a40;
+$primary-color: #272727;
+
+$secondary-text: #ff652f;
+$primary-text: #14a76c; 
+$tertiary-text: #ffe400;
 
 html, .app {
-  background: $primary-color;
+  background: $secondary-color;
   color: $primary-text;
+  font-family: "Comic Sans MS", cursive, sans-serif;
 }
 .main-content {
     padding-top: 5em;
+}
+
+.bg-dark {
+  background: $primary-color!important;
+}
+
+b {
+  color: $secondary-text;
+}
+
+.text-muted {
+  color: $primary-text!important;
+  /* padding: 5px; */
+  margin-top: 5px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $secondary-text;
+}
+
+.card {
+  margin: 50px;
+  background: $primary-color;
+  padding: 20px;
+}
+
+small {
+  color: $tertiary-text;
+}
+
+.ability-text {
+  color: $primary-text;
 }
 
 .row-2 {
@@ -17,6 +52,13 @@ html, .app {
 
 .search-box {
     width: 50%;
+    background: transparent;
+    border-color: $secondary-text;
+}
+.search-box:focus {
+  color: $primary-text;
+  background: transparent;
+  border-color: $secondary-text;
 }
 
 .search-results {
@@ -40,7 +82,7 @@ html, .app {
   width: 240px;
   height: 30px;
   padding: 10px 20px;
-  font-family: Helvetica, sans-serif;
+  font-family: "Comic Sans MS", cursive, sans-serif;
   font-weight: 300;
   font-size: 16px;
   border: 1px solid #aaa;
@@ -67,7 +109,7 @@ html, .app {
   border: 1px solid #aaa;
   background-color: transparent;
   color: $primary-text;
-  font-family: Helvetica, sans-serif;
+  font-family: "Comic Sans MS", cursive, sans-serif;
   font-weight: 300;
   font-size: 16px;
   border-bottom-left-radius: 4px;

@@ -23,9 +23,9 @@ class MonsterDetails extends Component {
         return abilityList.map((ability, idx) => {
             return (
                 <div key={idx}>
-                    <h6>{ability.name}</h6>
-                    <h6>Description: <small>{ability.desc}</small></h6>
-                    <h6>Attack Bonus: <small>{ability.attack_bonus}</small></h6>
+                    <h5 className='card-subtitle mb-2 text-muted'>{ability.name}</h5>
+                    <h6 className='card-text'>Description: <small>{ability.desc}</small></h6>
+                    <h6 className='card-text'>Attack Bonus: <small>{ability.attack_bonus}</small></h6>
                 </div>
             )
         }
@@ -41,52 +41,68 @@ class MonsterDetails extends Component {
                         <h4 className='text-center object-title'><u>{monster.name}</u></h4>
                         <div className='row'>
                             <div className='col'>
-                                <h5 className='text-center'><u>Overview</u></h5>
-                                <h6>Type: <small>{monster.type}</small></h6>
-                                <h6>Size: <small>{monster.size}</small></h6>
-                                <h6>SubType: <small>{monster.subtype}</small></h6>
-                                <h6>Alignment: <small>{monster.alignment}</small></h6>
-                                <h6>Speed: <small>{monster.speed}</small></h6>
-                                <h6>Senses: <small>{monster.senses}</small></h6>
-                                <h6>Languages: <small>{monster.languages}</small></h6>
-                                <h6>Challenge Rating: <small>{monster.challenge_rating}</small></h6>
+                                <div className='card'>
+                                    <div className='card-block'>
+                                        <h4 className='card-title'><u>Overview</u></h4>
+                                        <h6 className='card-text'>Type: <small>{monster.type}</small></h6>
+                                        <h6 className='card-text'>Size: <small>{monster.size}</small></h6>
+                                        <h6 className='card-text'>SubType: <small>{monster.subtype}</small></h6>
+                                        <h6 className='card-text'>Alignment: <small>{monster.alignment}</small></h6>
+                                        <h6 className='card-text'>Speed: <small>{monster.speed}</small></h6>
+                                        <h6 className='card-text'>Senses: <small>{monster.senses}</small></h6>
+                                        <h6 className='card-text'>Languages: <small>{monster.languages}</small></h6>
+                                        <h6 className='card-text'>Challenge Rating: <small>{monster.challenge_rating}</small></h6>
+                                    </div>
+                                </div>
+                                <div className='card'>
+                                    <div className='card-block'>
+                                        <h5 className='card-title'><u>Special Abilities</u></h5>
+                                        {this.listAbilities(monster.special_abilities)}
+                                    </div>
+                                </div>
                             </div>
                             <div className='col'>
-                                <h5 className='text-center'><u>Abilities and Saves</u></h5>
-                                <h6>Strength: <small>{monster.strength}</small></h6>
-                                <h6>Dexterity: <small>{monster.dexterity}</small></h6>
-                                <h6>Constitution: <small>{monster.constitution}</small></h6>
-                                <h6>Inelligence: <small>{monster.intelligence}</small></h6>
-                                <h6>Wisdom: <small>{monster.wisdom}</small></h6>
-                                <h6>Charisma: <small>{monster.charisma}</small></h6>
-                                <h6>Constitution Save: <small>{monster.constitution_Save}</small></h6>
-                                <h6>Intelligence Save: <small>{monster.intelligence_save}</small></h6>
-                                <h6>Wisdom Save: <small>{monster.wisdom_Save}</small></h6>
-                                <h6>Perception: <small>{monster.perception}</small></h6>
+                                <div className='card'>
+                                    <div className='card-block'>
+                                        <h5 className='card-title'><u>Abilities and Saves</u></h5>
+                                        <h6 className='card-text'>Strength: <small>{monster.strength}</small></h6>
+                                        <h6 className='card-text'>Dexterity: <small>{monster.dexterity}</small></h6>
+                                        <h6 className='card-text'>Constitution: <small>{monster.constitution}</small></h6>
+                                        <h6 className='card-text'>Inelligence: <small>{monster.intelligence}</small></h6>
+                                        <h6 className='card-text'>Wisdom: <small>{monster.wisdom}</small></h6>
+                                        <h6 className='card-text'>Charisma: <small>{monster.charisma}</small></h6>
+                                        <h6 className='card-text'>Constitution Save: <small>{monster.constitution_Save}</small></h6>
+                                        <h6 className='card-text'>Intelligence Save: <small>{monster.intelligence_save}</small></h6>
+                                        <h6 className='card-text'>Wisdom Save: <small>{monster.wisdom_Save}</small></h6>
+                                        <h6 className='card-text'>Perception: <small>{monster.perception}</small></h6>
+                                    </div>
+                                </div>
+                                <div className='card'>
+                                    <div className='card-block'>
+                                        <h5 className='card-title'><u>Actions</u></h5>
+                                        {this.listAbilities(monster.actions)}
+                                    </div>
+                                </div>
                             </div>
                             <div className='col'>
-                                <h5 className='text-center'><u>Combat Stats</u></h5>
-                                <h6>Hit Points: <small>{monster.hit_points}</small></h6>
-                                <h6>Hit Dice: <small>{monster.hit_dice}</small></h6>
-                                <h6>Armor Class: <small>{monster.armor_class}</small></h6>
-                                <h6>Damage Vulnerabilities: <small>{monster.damage_vulnerabilities}</small></h6>
-                                <h6>Damage Resistances: <small>{monster.damage_resistances}</small></h6>
-                                <h6>Damage Immunities: <small>{monster.damage_immunities}</small></h6>
-                                <h6>Condition Immunities: <small>{monster.condition_immunities}</small></h6>
-                            </div>
-                        </div>
-                        <div className='row row-2'>
-                            <div className='col'>
-                                <h5 className='text-center'><u>Special Abilities</u></h5>
-                                {this.listAbilities(monster.special_abilities)}
-                            </div>
-                            <div className='col'>
-                                <h5 className='text-center'><u>Actions</u></h5>
-                                {this.listAbilities(monster.actions)}
-                            </div>
-                            <div className='col'>
-                                <h5 className='text-center'><u>Legendary Actions</u></h5>
-                                {this.listAbilities(monster.legendary_actions)}
+                                <div className='card'>
+                                    <div className='card-block'>
+                                        <h5 className='card-title'><u>Combat Stats</u></h5>
+                                         <h6 className='card-text'>Hit Points: <small>{monster.hit_points}</small></h6>
+                                         <h6 className='card-text'>Hit Dice: <small>{monster.hit_dice}</small></h6>
+                                         <h6 className='card-text'>Armor Class: <small>{monster.armor_class}</small></h6>
+                                         <h6 className='card-text'>Damage Vulnerabilities: <small>{monster.damage_vulnerabilities}</small></h6>
+                                         <h6 className='card-text'>Damage Resistances: <small>{monster.damage_resistances}</small></h6>
+                                         <h6 className='card-text'>Damage Immunities: <small>{monster.damage_immunities}</small></h6>
+                                         <h6 className='card-text'>Condition Immunities: <small>{monster.condition_immunities}</small></h6>
+                                    </div>
+                                </div>
+                                <div className='card'>
+                                    <div className='card-block'>
+                                        <h5 className='card-title'><u>Legendary Actions</u></h5>
+                                        {this.listAbilities(monster.legendary_actions)}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
