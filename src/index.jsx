@@ -5,7 +5,8 @@ import { createStore, applyMiddleware } from 'redux';
 import App from './components/app';
 import reducers from './reducers';
 import { BrowserRouter } from 'react-router-dom'
-import '../style/style.scss'
+
+require('../style/style.scss');
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
