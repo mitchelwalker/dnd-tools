@@ -1,0 +1,94 @@
+$primary-color:#18121e;
+$secondary-color: #233237;
+$primary-text: #984b43;
+$secondary-text: #eac67a; 
+
+html, .app {
+  background: $primary-color;
+  color: $primary-text;
+}
+.main-content {
+    padding-top: 5em;
+}
+
+.row-2 {
+  margin-top: 2em;
+}
+
+.search-box {
+    width: 50%;
+}
+
+.search-results {
+    margin-top: 5em;
+}
+
+.object-title {
+    margin-bottom: 2em;
+}
+
+.react-autosuggest__suggestion:hover {
+  background: $secondary-color;
+  color: $secondary-text
+}
+
+.react-autosuggest__container {
+  position: relative;
+}
+
+.react-autosuggest__input {
+  width: 240px;
+  height: 30px;
+  padding: 10px 20px;
+  font-family: Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.react-autosuggest__input--focused {
+  outline: none;
+}
+
+.react-autosuggest__input--open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.react-autosuggest__suggestions-container {
+  display: none;
+}
+
+.react-autosuggest__suggestions-container--open {
+  display: block;
+  position: relative;
+  width: 50%;
+  border: 1px solid #aaa;
+  background-color: transparent;
+  color: $primary-text
+  font-family: Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  z-index: 2;
+  margin: auto;
+}
+
+.react-autosuggest__suggestions-list {
+  background: transparent;
+  color: $primary-text
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.react-autosuggest__suggestion {
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.react-autosuggest__suggestion--highlighted {
+  background-color: $secondary-color
+}
