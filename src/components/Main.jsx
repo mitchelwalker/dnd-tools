@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import Home from './Home'
 import SpellDetails from '../containers/SpellDetails'
 import MonsterDetails from '../containers/MonsterDetails'
+import CharacterContainer from '../containers/CharacterContainer'
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -15,6 +16,7 @@ const Main = () => (
       <Route exact path='/' component={Home}/>
       <Route path='/spells' component={SpellDetails}/>
       <Route path='/monsters' component={MonsterDetails}/>
+      <Route path='/character' component={CharacterContainer}/>
     </Switch>
   </main>
 )
