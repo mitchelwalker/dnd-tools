@@ -6,6 +6,7 @@ import App from './components/App';
 import Home from './components/Home';
 import SpellDetails from './containers/SpellDetails';
 import MonsterDetails from './containers/MonsterDetails';
+import CharacterContainer from './containers/CharacterContainer';
 import reducers from './reducers';
 import { Router, Route, Switch } from 'react-router'
 import createBrowserHistory  from 'history/createBrowserHistory'
@@ -19,9 +20,10 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <Router history={history} component={App}>
       <Switch>  
-        <Route exact path='/' component={Home}/>
-        <Route path='/spells' component={SpellDetails}/>
-        <Route path='/monsters' component={MonsterDetails}/>
+        <Route exact path='/' component={Home} />
+        <Route path='/spells' component={SpellDetails} />
+        <Route path='/monsters' component={MonsterDetails} />
+        <Route path='/character' component={CharacterContainer} />
       </Switch>
     </Router>
   </Provider>

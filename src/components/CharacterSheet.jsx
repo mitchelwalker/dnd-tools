@@ -49,6 +49,16 @@ export default class CharacterSheet extends Component {
         return null;
     }
 
+    abilityModifier = (ability, baseStat) => {
+        const character = this.props.character;
+        const proficiency = character[ability] ? parseInt(this.props.character.proficency_bonus, 10) : 0;
+        const base = parseInt(character[baseStat], 10);
+        const modifier = this.renderModifier(base);
+        let total = proficiency + modifier
+        console.log(total);
+        return (total)
+    }
+
 
     render() {
         return (
@@ -98,7 +108,7 @@ export default class CharacterSheet extends Component {
                                 <label htmlFor="Dexterityscore">Dexterity</label><input name="Dexterityscore" placeholder="10" defaultValue={this.props.character.dexterity} />
                             </div>
                             <div className="modifier">
-                                <input name="Dexteritymod" placeholder="+0" />
+                                <input name="Dexteritymod" placeholder="+0" defaultValue={this.renderModifier(this.props.character.dexterity)}/>
                             </div>
                             </li>
                             <li>
@@ -106,7 +116,7 @@ export default class CharacterSheet extends Component {
                                 <label htmlFor="Constitutionscore">Constitution</label><input name="Constitutionscore" placeholder="10" defaultValue={this.props.character.constitution} />
                             </div>
                             <div className="modifier">
-                                <input name="Constitutionmod" placeholder="+0" />
+                                <input name="Constitutionmod" placeholder="+0" defaultValue={this.renderModifier(this.props.character.constitution)}/>
                             </div>
                             </li>
                             <li>
@@ -114,7 +124,7 @@ export default class CharacterSheet extends Component {
                                 <label htmlFor="Wisdomscore">Wisdom</label><input name="Wisdomscore" placeholder="10" defaultValue={this.props.character.wisdom} />
                             </div>
                             <div className="modifier">
-                                <input name="Wisdommod" placeholder="+0" />
+                                <input name="Wisdommod" placeholder="+0" defaultValue={this.renderModifier(this.props.character.wisdom)}/>
                             </div>
                             </li>
                             <li>
@@ -122,7 +132,7 @@ export default class CharacterSheet extends Component {
                                 <label htmlFor="Intelligencescore">Intelligence</label><input name="Intelligencescore" placeholder="10" defaultValue={this.props.character.intelligence} />
                             </div>
                             <div className="modifier">
-                                <input name="Intelligencemod" placeholder="+0" />
+                                <input name="Intelligencemod" placeholder="+0" defaultValue={this.renderModifier(this.props.character.intelligence)}/>
                             </div>
                             </li>
                             <li>
@@ -130,7 +140,7 @@ export default class CharacterSheet extends Component {
                                 <label htmlFor="Charismascore">Charisma</label><input name="Charismascore" placeholder="10" defaultValue={this.props.character.charisma} />
                             </div>
                             <div className="modifier">
-                                <input name="Charismamod" placeholder="+0" />
+                                <input name="Charismamod" placeholder="+0" defaultValue={this.renderModifier(this.props.character.charisma)}/>
                             </div>
                             </li>
                         </ul>
@@ -151,22 +161,22 @@ export default class CharacterSheet extends Component {
                         <div className="saves list-section box">
                             <ul>
                             <li>
-                                <label htmlFor="Strength-save">Strength</label><input name="Strength-save" placeholder="+0" type="text" /><input name="Strength-save-prof" type="checkbox" defaultChecked={this.props.character.str_save} />
+                                <label htmlFor="Strength-save">Strength</label><input name="Strength-save" placeholder="+0" type="text" defaultValue={this.abilityModifier('str_save', 'strength')}/><input name="Strength-save-prof" type="checkbox" defaultChecked={this.props.character.str_save} />
                             </li>
                             <li>
-                                <label htmlFor="Dexterity-save">Dexterity</label><input name="Dexterity-save" placeholder="+0" type="text" /><input name="Dexterity-save-prof" type="checkbox" defaultChecked={this.props.character.dex_save} />
+                                <label htmlFor="Dexterity-save">Dexterity</label><input name="Dexterity-save" placeholder="+0" type="text" defaultValue={this.abilityModifier('dex_save', 'dexterity')}/><input name="Dexterity-save-prof" type="checkbox" defaultChecked={this.props.character.dex_save} />
                             </li>
                             <li>
-                                <label htmlFor="Constitution-save">Constitution</label><input name="Constitution-save" placeholder="+0" type="text" /><input name="Constitution-save-prof" type="checkbox" defaultChecked={this.props.character.con_save} />
+                                <label htmlFor="Constitution-save">Constitution</label><input name="Constitution-save" placeholder="+0" type="text" defaultValue={this.abilityModifier('con_save', 'constitution')}/><input name="Constitution-save-prof" type="checkbox" defaultChecked={this.props.character.con_save} />
                             </li>
                             <li>
-                                <label htmlFor="Wisdom-save">Wisdom</label><input name="Wisdom-save" placeholder="+0" type="text" /><input name="Wisdom-save-prof" type="checkbox" defaultChecked={this.props.character.wis_save} />
+                                <label htmlFor="Wisdom-save">Wisdom</label><input name="Wisdom-save" placeholder="+0" type="text" defaultValue={this.abilityModifier('wis_save', 'wisdom')}/><input name="Wisdom-save-prof" type="checkbox" defaultChecked={this.props.character.wis_save} />
                             </li>
                             <li>
-                                <label htmlFor="Intelligence-save">Intelligence</label><input name="Intelligence-save" placeholder="+0" type="text" /><input name="Intelligence-save-prof" type="checkbox" defaultChecked={this.props.character.int_save} />
+                                <label htmlFor="Intelligence-save">Intelligence</label><input name="Intelligence-save" placeholder="+0" type="text" defaultValue={this.abilityModifier('int_save', 'intelligence')} /><input name="Intelligence-save-prof" type="checkbox" defaultChecked={this.props.character.int_save} />
                             </li>
                             <li>
-                                <label htmlFor="Charisma-save">Charisma</label><input name="Charisma-save" placeholder="+0" type="text" /><input name="Charisma-save-prof" type="checkbox" defaultChecked={this.props.character.cha_save} />
+                                <label htmlFor="Charisma-save">Charisma</label><input name="Charisma-save" placeholder="+0" type="text" defaultValue={this.abilityModifier('cha_save', 'charisma')} /><input name="Charisma-save-prof" type="checkbox" defaultChecked={this.props.character.cha_save} />
                             </li>
                             </ul>
                             <div className="label">
