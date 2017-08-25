@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "babel-preset-stage-1": "*",
+    "history": "^4.6.3",
     "lodash": "*",
     "node-sass": "*",
     "react": "*",

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavBar from '../components/NavBar'
+import NavBar from './NavBar'
 import Main from './Main'
 
 export default class App extends Component {
@@ -8,10 +8,10 @@ export default class App extends Component {
     return (
         <div>
           <NavBar />
-          <div className='main-content'>
-            <Main />
+          <div className='container-fluid'>
+            {this.props.children}
           </div>
-        </div>
+      </div>
     );
   }
 }
